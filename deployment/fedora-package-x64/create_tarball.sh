@@ -24,12 +24,12 @@ tar \
 --exclude='**/.nuget' \
 --exclude='*.deb' \
 --exclude='*.rpm' \
--xcf "$pkg_src_dir/jellyfin-${VERSION}.tar.gz" \
+-czf "$pkg_src_dir/jellyfin-${VERSION}.tar.gz" \
 -C "../.." ./ || GNU_TAR=0
 
 if [ $GNU_TAR -eq 0 ]; then
     echo "The installed tar binary did not support --transform. Using workaround."
-    mkdir -p "${package_temporary_dir}/jellyfin"
+    mkdir -p "${package_temporary_dir}/jellyfin"{,-"${VERSION}"}
     # Not GNU tar
     tar \
     --exclude='.git*' \
@@ -51,5 +51,5 @@ if [ $GNU_TAR -eq 0 ]; then
     echo "Removing filtered package."
     rm -f "${package_temporary_dir}/jellyfin/jellyfin-${VERSION}.tar.gz"
     echo "Repackaging package into final tarball."
-    tar -xzf "${pkg_src_dir}/jellyfin-${VERSION}.tar.gz" -C "${package_temporary_dir}" "jellyfin-${VERSION}"
+    tar -czf "${pkg_src_dir}/jellyfin-${VERSION}.tar.gz" -C "${package_temporary_dir}" "jellyfin-${VERSION}"
 fi
