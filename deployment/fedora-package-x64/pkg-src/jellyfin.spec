@@ -7,7 +7,7 @@
 %endif
 
 Name:           jellyfin
-Version:        10.1.51
+Version:        10.1.52
 Release:        1%{?dist}
 Summary:        The Free Software Media Browser
 License:        GPLv2
@@ -142,7 +142,7 @@ fi
 %changelog
 * Fri Feb 15 2019 Brian J. Murrell <brian@interlinx.bc.ca>
 - add COPR build support so that packages can be auto-built from tags
-- bump Version to 10.1.50
+- bump Version to 10.1.52
 
 * Sun Jan 20 2019 Jellyfin Packaging Team <packaging@jellyfin.org>
 - jellyfin:
