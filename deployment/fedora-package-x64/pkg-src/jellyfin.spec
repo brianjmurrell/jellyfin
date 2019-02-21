@@ -8,7 +8,7 @@
 
 Name:           jellyfin
 Version:        10.2.1.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        The Free Software Media Browser
 License:        GPLv2
 URL:            https://jellyfin.media
@@ -27,7 +27,7 @@ BuildRequires:  libcurl-devel, fontconfig-devel, freetype-devel, openssl-devel, 
 Requires:       libcurl, fontconfig, freetype, openssl, glibc libicu
 # Requirements not packaged in main repos
 # COPR @dotnet-sig/dotnet
-BuildRequires:  dotnet-runtime-2.2
+BuildRequires:  dotnet-runtime-2.2, dotnet-sdk-2.2
 # RPMfusion free
 Requires:       ffmpeg
 
