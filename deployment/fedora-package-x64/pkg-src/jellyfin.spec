@@ -7,7 +7,7 @@
 %endif
 
 Name:           jellyfin
-Version:        10.2.1
+Version:        10.2.1.1
 Release:        1%{?dist}
 Summary:        The Free Software Media Browser
 License:        GPLv2
@@ -140,6 +140,9 @@ fi
 %systemd_postun_with_restart jellyfin.service
 
 %changelog
+* Thu Feb 21 2019 Brian J. Murrell <brian@interlinx.bc.ca>
+- jellyfin:
+  - COPR auto-build
 * Wed Feb 20 2019 Jellyfin Packaging Team <packaging@jellyfin.org>
 - jellyfin:
 - PR920 Fix cachedir missing from Docker container
