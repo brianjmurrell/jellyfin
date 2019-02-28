@@ -1,0 +1,27 @@
+diff --git a/CONTRIBUTORS.md b/CONTRIBUTORS.md
+index 28690f36f..0831e1340 100644
+--- a/CONTRIBUTORS.md
++++ b/CONTRIBUTORS.md
+@@ -19,6 +19,9 @@
+  - [LogicalPhallacy](https://github.com/LogicalPhallacy/)
+  - [RazeLighter777](https://github.com/RazeLighter777)
+  - [WillWill56](https://github.com/WillWill56)
++ - [Liggy](https://github.com/Liggy)
++ - [fruhnow](https://github.com/fruhnow)
++ - [Lynxy](https://github.com/Lynxy)
+ 
+ # Emby Contributors
+ 
+diff --git a/MediaBrowser.Controller/MediaEncoding/EncodingHelper.cs b/MediaBrowser.Controller/MediaEncoding/EncodingHelper.cs
+index f5f147db1..e378c2b89 100644
+--- a/MediaBrowser.Controller/MediaEncoding/EncodingHelper.cs
++++ b/MediaBrowser.Controller/MediaEncoding/EncodingHelper.cs
+@@ -1904,7 +1904,7 @@ namespace MediaBrowser.Controller.MediaEncoding
+             {
+                 flags.Add("+ignidx");
+             }
+-            if (state.GenPtsInput)
++            if (state.GenPtsInput || string.Equals(state.OutputVideoCodec, "copy", StringComparison.OrdinalIgnoreCase))
+             {
+                 flags.Add("+genpts");
+             }

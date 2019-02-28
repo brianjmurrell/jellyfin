@@ -7,8 +7,8 @@
 %endif
 
 Name:           jellyfin
-Version:        10.2.1
-Release:        2%{?dist}
+Version:        10.2.1.2
+Release:        1%{?dist}
 Summary:        The Free Software Media Browser
 License:        GPLv2
 URL:            https://jellyfin.media
@@ -19,6 +19,7 @@ Source3:        jellyfin.sudoers
 Source4:        restart.sh
 Source5:        jellyfin.override.conf
 Source6:        jellyfin-firewalld.xml
+Patch0:		Always-set-ffmpeg-flag-+genpts-when-video-stream-is-being-copied-#977.patch
 
 %{?systemd_requires}
 BuildRequires:  systemd
@@ -42,7 +43,7 @@ Jellyfin is a free software media system that puts you in control of managing an
 
 
 %prep
-%autosetup -n %{name}-%{version}
+%autosetup -n %{name}-%{version} -p 1
 
 %build
 
@@ -140,6 +141,8 @@ fi
 %systemd_postun_with_restart jellyfin.service
 
 %changelog
+* Thu Feb 28 2019 Brian J. Murrell <brian@interlinx.bc.ca>
+- Add patch for PR#977
 * Thu Feb 21 2019 Brian J. Murrell <brian@interlinx.bc.ca>
 - jellyfin:
 - dotnet seems to have moved to dotnet-runtime
