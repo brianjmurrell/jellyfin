@@ -7,7 +7,7 @@
 %endif
 
 Name:           jellyfin
-Version:        10.2.2
+Version:        10.2.2.1
 Release:        1%{?dist}
 Summary:        The Free Software Media Browser
 License:        GPLv2
@@ -19,6 +19,7 @@ Source3:        jellyfin.sudoers
 Source4:        restart.sh
 Source5:        jellyfin.override.conf
 Source6:        jellyfin-firewalld.xml
+Patch0:		Always-set-ffmpeg-flag-+genpts-when-video-stream-is-being-copied-#977.patch
 
 %{?systemd_requires}
 BuildRequires:  systemd
@@ -42,7 +43,7 @@ Jellyfin is a free software media system that puts you in control of managing an
 
 
 %prep
-%autosetup -n %{name}-%{version}
+%autosetup -n %{name}-%{version} -p 1
 
 %build
 
@@ -140,7 +141,10 @@ fi
 %systemd_postun_with_restart jellyfin.service
 
 %changelog
+* Fri Mar  1 2019 Brian J. Murrell <brian@interlinx.bc.ca>
+- Add patch for PR#977
 * Thu Feb 28 2019 Jellyfin Packaging Team <packaging@jellyfin.org>
+* Thu Feb 21 2019 Brian J. Murrell <brian@interlinx.bc.ca>
 - jellyfin:
 - PR968 Release 10.2.z copr autobuild
 - PR964 Install the dotnet runtime package in Fedora build
