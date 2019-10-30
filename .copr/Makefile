@@ -5,7 +5,7 @@ deployment/fedora-package-x64/pkg-src/jellyfin-web-$(VERSION).tar.gz:
 	if ! curl -f -L -o deployment/fedora-package-x64/pkg-src/jellyfin-web-$(VERSION).tar.gz \
 	 https://github.com/jellyfin/jellyfin-web/archive/v$(VERSION).tar.gz; then              \
 	    curl -f -L -o deployment/fedora-package-x64/pkg-src/jellyfin-web-$(VERSION).tar.gz  \
-	     https://github.com/jellyfin/jellyfin-web/archive/master.tar.gz                     \
+	     https://github.com/jellyfin/jellyfin-web/archive/master.tar.gz;                    \
 	fi
 
 srpm: deployment/fedora-package-x64/pkg-src/jellyfin-web-$(VERSION).tar.gz
