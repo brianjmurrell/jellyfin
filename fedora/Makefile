@@ -1,6 +1,7 @@
 VERSION := $(shell sed -ne '/^Version:/s/.*  *//p' fedora/jellyfin.spec)
 
 srpm:
+	env
 	cd fedora/;                                                                   \
 	SOURCE_DIR=..                                                                 \
 	WORKDIR="$${PWD}";                                                            \
