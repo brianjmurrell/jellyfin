@@ -816,7 +816,7 @@ namespace MediaBrowser.Model.Dlna
                 }
             }
 
-            _logger.LogDebug(
+            _logger.LogInformation(
                 "StreamBuilder.BuildVideoItem( Profile={0}, Path={1}, AudioStreamIndex={2}, SubtitleStreamIndex={3} ) => ( PlayMethod={4}, TranscodeReason={5} ) {6}",
                 options.Profile.Name ?? "Anonymous Profile",
                 item.Path ?? "Unknown path",
